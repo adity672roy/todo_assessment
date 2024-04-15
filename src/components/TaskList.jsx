@@ -13,6 +13,7 @@ const TaskList = () => {
   const dispatch = useDispatch();
   const [editTaskId, setEditTaskId] = useState(null);
   const [editText, setEditText] = useState("");
+  const [active, setActive] = useState("all");
 
   const filteredTasks = () => {
     switch (filter) {
@@ -45,28 +46,39 @@ const TaskList = () => {
   };
 
   return (
-    <div>
+    <div className="tasks_list_container">
       <div className="task_filter_btns">
         <button
-          className="filter_btn"
-          onClick={() => dispatch(setFilter("all"))}
+          className={`filter_btn ${active === "all" ? "active_btn" : ""}`}
+          onClick={() => {
+            dispatch(setFilter("all"));
+            setActive("all");
+          }}
         >
           All
         </button>
         <button
-          className="filter_btn"
-          onClick={() => dispatch(setFilter("completed"))}
+          className={`filter_btn ${active === "completed" ? "active_btn" : ""}`}
+          onClick={() => {
+            dispatch(setFilter("completed"));
+            setActive("completed");
+          }}
         >
           Completed
         </button>
         <button
-          className="filter_btn"
-          onClick={() => dispatch(setFilter("incomplete"))}
+          className={`filter_btn ${
+            active === "incomplete" ? "active_btn" : ""
+          }`}
+          onClick={() => {
+            dispatch(setFilter("incomplete"));
+            setActive("incomplete");
+          }}
         >
           Incomplete
         </button>
       </div>
-      <ul>
+      <ul className="tasks">
         {filteredTasks().map((task) => (
           <li key={task.id} className="task_list">
             {editTaskId === task.id ? (

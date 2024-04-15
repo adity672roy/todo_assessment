@@ -3,16 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .App {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   width: 100%;
   height: 100%;
+  font-family: sans-serif;
 }
+
 .navbar {
-  height: 60px;
-  background: black;
+ min-height: 80px;
+  background:#1d6b70;
   width: 100%;
   color: white;
   display: flex;
@@ -22,7 +25,7 @@
 }
 .task_input {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -50,20 +53,35 @@
 .delete {
   background-color: rgb(255, 116, 116);
 }
+.tasks {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 10px;
+}
+.tasks_list_container {
+  width: 100%;
+}
+.active_btn{
+  background: black!important;
+  color: white;
+}
 .task_filter_btns {
   display: flex;
   gap: 10px;
+  justify-content: center;
   margin-bottom: 20px;
 }
 .filter_btn {
+  cursor: pointer;
   padding: 5px 10px;
   background: rgb(206, 198, 206);
   outline: none;
+  border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
 }
 .task_list {
-  border: 1px solid black;
   border-radius: 5px;
   list-style: none;
   background-color: rgba(198, 198, 198, 0.326);
@@ -72,7 +90,7 @@
   width: 100%;
 }
 .task {
-  font-size: 16px;
+  font-size: 20px;
 }
 .edit_task {
   display: flex;
@@ -87,4 +105,26 @@
 }
 .edit {
   background-color: rgb(0, 121, 161);
+}
+
+@media screen and (max-width: 800px) {
+  .tasks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 570px) {
+  .tasks {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .filter_btn,
+  .task_input {
+    font-size: 16px;
+  }
+  .task_input {
+    padding: 5px;
+    gap: 5px;
+  }
 }
