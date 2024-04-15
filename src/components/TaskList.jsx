@@ -93,7 +93,7 @@ const TaskList = () => {
                   onClick={() => handleSaveEdit(task.id)}
                   className="btn "
                 >
-                  +
+                ➕
                 </button>
               </div>
             ) : (
