@@ -7,7 +7,6 @@ const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TASK":
       const newTasksAdd = [...state.tasks, action.payload];
-      localStorage.setItem("tasks", JSON.stringify(newTasksAdd));
       return {
         ...state,
         tasks: newTasksAdd,
@@ -16,7 +15,6 @@ const taskReducer = (state = initialState, action) => {
       const newTasksDelete = state.tasks.filter(
         (task) => task.id !== action.payload
       );
-      localStorage.setItem("tasks", JSON.stringify(newTasksDelete));
       return {
         ...state,
         tasks: newTasksDelete,
@@ -28,7 +26,6 @@ const taskReducer = (state = initialState, action) => {
         }
         return task;
       });
-      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
       return {
         ...state,
         tasks: updatedTasks,
@@ -40,7 +37,6 @@ const taskReducer = (state = initialState, action) => {
         }
         return task;
       });
-      localStorage.setItem("tasks", JSON.stringify(editTasks));
       return {
         ...state,
         tasks: editTasks,

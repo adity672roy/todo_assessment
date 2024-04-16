@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   deleteTask,
@@ -14,6 +14,10 @@ const TaskList = () => {
   const [editTaskId, setEditTaskId] = useState(null);
   const [editText, setEditText] = useState("");
   const [active, setActive] = useState("all");
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
+  }, [tasks]);
 
   const filteredTasks = () => {
     switch (filter) {
@@ -93,7 +97,7 @@ const TaskList = () => {
                   onClick={() => handleSaveEdit(task.id)}
                   className="btn "
                 >
-                ➕
+                  ➕
                 </button>
               </div>
             ) : (

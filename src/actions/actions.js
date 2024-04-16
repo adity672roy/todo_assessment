@@ -1,3 +1,4 @@
+// to add the task
 export const addTask = (task) => {
   return {
     type: "ADD_TASK",
@@ -5,6 +6,7 @@ export const addTask = (task) => {
   };
 };
 
+// to delete the task 
 export const deleteTask = (taskId) => {
   return {
     type: "DELETE_TASK",
@@ -12,6 +14,7 @@ export const deleteTask = (taskId) => {
   };
 };
 
+// to toggle the task as completed and incomplated
 export const toggleTask = (taskId) => {
   return {
     type: "TOGGLE_TASK",
@@ -19,6 +22,7 @@ export const toggleTask = (taskId) => {
   };
 };
 
+// to edit or modify the task
 export const editTask = (taskId, newText) => {
   return {
     type: "EDIT_TASK",
@@ -26,6 +30,7 @@ export const editTask = (taskId, newText) => {
   };
 };
 
+// to filter the task as all, completed and incompleted
 export const setFilter = (filter) => {
   return {
     type: "SET_FILTER",
